@@ -20,6 +20,12 @@ import java.util.Map;
 @RequestMapping("/basic")
 public class BasicController {
 
+    @GetMapping("/literal")
+    public String literal(Model model) {
+        model.addAttribute("data", "spring");
+        return "basic/literal";
+    }
+
     @GetMapping("/link")
     public String link(Model model) {
         model.addAttribute("param1", "data1");
