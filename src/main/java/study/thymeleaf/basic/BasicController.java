@@ -22,6 +22,7 @@ public class BasicController {
 
     @GetMapping("/attribute")
     public String attribute() {
+//        커밋용 주석
         return "basic/attribute";
     }
 
