@@ -20,9 +20,48 @@ import java.util.Map;
 @RequestMapping("/basic")
 public class BasicController {
 
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        model.addAttribute("user", new User("JYP", 30));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
+    }
+
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "JYP");
+        return "basic/comments";
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
+    }
+
+    @GetMapping("/each")
+    public String each(Model model) {
+        addUsers(model);
+        return "basic/each";
+    }
+
+    private void addUsers(Model model) {
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 15));
+        list.add(new User("userC", 19));
+
+        model.addAttribute("users", list);
+    }
+
     @GetMapping("/attribute")
     public String attribute() {
-//        커밋용 주석
         return "basic/attribute";
     }
 
